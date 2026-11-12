@@ -107,6 +107,4 @@ mlagents-learn Config/lane_centering_config.yaml --run-id=lane_01
 | Space | El Freni |
 | 1 / 2 / 3 | Kamera Açısı (Takipçi / Kuşbakışı / Yan Profil) |
 
-## Lisans
 
-Bu proje MIT Lisansı altında sunulmaktadır. Ayrıntılar için LICENSE dosyasına bakabilirsiniz.
