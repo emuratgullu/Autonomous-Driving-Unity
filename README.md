@@ -6,44 +6,42 @@ Unity ortamında pekiştirmeli öğrenme (Unity ML-Agents) ve derin öğrenme ta
 
 | Paralel Park | Adaptif Hız Sabitleme (ACC) |
 |---|---|
-|  |  |
+| &lt;img src=&quot;media/Park.gif&quot; width=&quot;420&quot; alt=&quot;Paralel Park&quot;&gt; | &lt;img src=&quot;media/Takip.png&quot; width=&quot;420&quot; alt=&quot;ACC&quot;&gt; |
 
-| Şerit Takip | Yaya Güvenliği | Tabela Tanıma |
-|---|---|---|
-|  |  |  |
-
-> Not: Ekran görüntülerini veya GIF kayıtlarını proje ana dizinindeki `media/` klasörüne yukarıdaki dosya adlarıyla ekleyebilirsiniz.
+| Yaya Güvenliği | Tabela Tanıma |
+|---|---|
+| &lt;img src=&quot;media/Yaya.gif&quot; width=&quot;420&quot; alt=&quot;Yaya Güvenliği&quot;&gt; | &lt;img src=&quot;media/Tabela.gif&quot; width=&quot;420&quot; alt=&quot;Tabela Tanıma&quot;&gt; |
 
 ## Modüller
 
 ### 1. Paralel Park
-* Dosya: `ParallelParkingAgent.cs`
-* Algoritma: PPO (Proximal Policy Optimization)
-* Girdiler: Araç hızı, yerel konum/rotasyon, park cebine olan mesafe ve açı farkı.
-* Eylemler: Sürekli direksiyon açısı, gaz ve geri vites torku.
-* Amaç: Çevre araçlara, kaldırıma veya duvara çarpmadan aracı park cebine hizalayıp tamamen durdurmak.
+- Dosya: `ParallelParkingAgent.cs`
+- Algoritma: PPO (Proximal Policy Optimization)
+- Girdiler: Araç hızı, yerel konum/rotasyon, park cebine olan mesafe ve açı farkı.
+- Eylemler: Sürekli direksiyon açısı, gaz ve geri vites torku.
+- Amaç: Çevre araçlara, kaldırıma veya duvara çarpmadan aracı park cebine hizalayıp tamamen durdurmak.
 
 ### 2. Adaptif Hız Sabitleme (ACC)
-* Dosyalar: `ACCAgent.cs`, `LeadCarController.cs`, `RedCarController.cs`
-* Senaryo: Değişken hız profiline sahip ön araç ve aniden şeride katılan engel araç.
-* Girdiler: Araç hızı, ön araç mesafesi ve ön aracın hızı.
-* Amaç: Ani hız değişimlerinde güvenli takip mesafesini (30m) korumak ve arkadan çarpmayı önlemek.
+- Dosyalar: `ACCAgent.cs`, `LeadCarController.cs`, `RedCarController.cs`
+- Senaryo: Değişken hız profiline sahip ön araç ve aniden şeride katılan engel araç.
+- Girdiler: Araç hızı, ön araç mesafesi ve ön aracın hızı.
+- Amaç: Ani hız değişimlerinde güvenli takip mesafesini (30m) korumak ve arkadan çarpmayı önlemek.
 
 ### 3. Şerit Takip ve Ortalama
-* Dosyalar: `LaneCenteringAgent.cs`, `DiscreteLaneAgent.cs`, `CollidingWheel.cs`
-* Algılama: Yol sınırlarına ve şerit çizgilerine fırlatılan Raycast sensörleri.
-* Amaç: Düz ve virajlı yollarda seyir hızını korurken aracı şerit merkezinde tutmak.
+- Dosyalar: `LaneCenteringAgent.cs`, `DiscreteLaneAgent.cs`, `CollidingWheel.cs`
+- Algılama: Yol sınırlarına ve şerit çizgilerine fırlatılan Raycast sensörleri.
+- Amaç: Düz ve virajlı yollarda seyir hızını korurken aracı şerit merkezinde tutmak.
 
 ### 4. Yaya Güvenliği ve Yol Verme
-* Dosyalar: `PedestrianController.cs`, `CrossingDetector.cs`, `EpisodeController.cs`, `RewardManager.cs`
-* Dinamikler: Kaldırımda bekleyen veya yaklaşan araca göre yola adım atan stokastik yaya davranışı.
-* Amaç: Yaya geçidine giren yayayı algılayıp güvenli mesafede durmak, geçiş tamamlandıktan sonra hedefe ilerlemek.
+- Dosyalar: `PedestrianController.cs`, `CrossingDetector.cs`, `EpisodeController.cs`, `RewardManager.cs`
+- Dinamikler: Kaldırımda bekleyen veya yaklaşan araca göre yola adım atan stokastik yaya davranışı.
+- Amaç: Yaya geçidine giren yayayı algılayıp güvenli mesafede durmak, geçiş tamamlandıktan sonra hedefe ilerlemek.
 
 ### 5. Trafik Tabelası Tanıma
-* Dosya: `TrafficSignReader.cs`
-* Model: 43 sınıflı GTSRB (German Traffic Sign Recognition Benchmark) ONNX modeli.
-* Çıkarım Motoru: Unity Sentis (GPU Compute).
-* Çalışma Mantığı: Araç kamerasından alınan görüntüden tabela alanını dinamik olarak kırpar (30x30 piksel, NHWC formatı), GPU üzerinde sınıflandırır ve güven eşiğini (%70) aşan tabelaları ekrana yansıtır.
+- Dosya: `TrafficSignReader.cs`
+- Model: 43 sınıflı GTSRB (German Traffic Sign Recognition Benchmark) ONNX modeli.
+- Çıkarım Motoru: Unity Sentis (GPU Compute).
+- Çalışma Mantığı: Araç kamerasından alınan görüntüden tabela alanını dinamik olarak kırpar (30x30 piksel, NHWC formatı), GPU üzerinde sınıflandırır ve güven eşiğini (%70) aşan tabelaları ekrana yansıtır.
 
 ## Klasör Yapısı
 
@@ -65,9 +63,9 @@ media/                             # Ekran görüntüleri ve demo GIF'leri
 ## Kurulum ve Gereksinimler
 
 ### Gereksinimler
-* Unity 2022.3 LTS veya Unity 6
-* Unity Paketleri: `ML-Agents (2.0+)`, `Unity Sentis (1.3+)`, `Input System`, `TextMeshPro`
-* Python 3.9 / 3.10 (`pip install mlagents torch`)
+- Unity 2022.3 LTS veya Unity 6
+- Unity Paketleri: `ML-Agents (2.0+)`, `Unity Sentis (1.3+)`, `Input System`, `TextMeshPro`
+- Python 3.9 / 3.10 (`pip install mlagents torch`)
 
 ### Kurulum Adımları
 1. Projeyi klonlayın:
