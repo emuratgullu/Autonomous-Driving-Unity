@@ -4,13 +4,21 @@ Unity ortamında pekiştirmeli öğrenme (Unity ML-Agents) ve derin öğrenme ta
 
 ## Önizleme
 
-| Paralel Park | Adaptif Hız Sabitleme (ACC) |
-|---|---|
-| &lt;img src=&quot;media/Park.gif&quot; width=&quot;420&quot; alt=&quot;Paralel Park&quot;&gt; | &lt;img src=&quot;media/Takip.png&quot; width=&quot;420&quot; alt=&quot;ACC&quot;&gt; |
+| Paralel Park |
+|---|
+| <img width="1710" height="1154" alt="Park" src="https://github.com/user-attachments/assets/f0304b43-bf91-4bcd-96ce-ebce361f5c93" /> |
 
-| Yaya Güvenliği | Tabela Tanıma |
-|---|---|
-| &lt;img src=&quot;media/Yaya.gif&quot; width=&quot;420&quot; alt=&quot;Yaya Güvenliği&quot;&gt; | &lt;img src=&quot;media/Tabela.gif&quot; width=&quot;420&quot; alt=&quot;Tabela Tanıma&quot;&gt; |
+| Adaptif Hız Sabitleme |
+|---|
+| <img width="1930" height="1444" alt="Takip" src="https://github.com/user-attachments/assets/e1c4167c-8aaa-4460-a7c8-8eb1a004ee12" /> |
+
+| Yaya Güvenliği |
+|---|
+| <img width="2764" height="1584" alt="Yaya" src="https://github.com/user-attachments/assets/d171a800-b192-43b8-8a4a-9ef726d93b04" /> | 
+
+| Tabela Tanıma |
+|---|
+| <img width="1616" height="724" alt="Tabela" src="https://github.com/user-attachments/assets/2ca64143-46e7-401d-8fd3-b3985a1ee40f" /> |
 
 ## Modüller
 
@@ -21,7 +29,7 @@ Unity ortamında pekiştirmeli öğrenme (Unity ML-Agents) ve derin öğrenme ta
 - Eylemler: Sürekli direksiyon açısı, gaz ve geri vites torku.
 - Amaç: Çevre araçlara, kaldırıma veya duvara çarpmadan aracı park cebine hizalayıp tamamen durdurmak.
 
-### 2. Adaptif Hız Sabitleme (ACC)
+### 2. Adaptif Hız Sabitleme 
 - Dosyalar: `ACCAgent.cs`, `LeadCarController.cs`, `RedCarController.cs`
 - Senaryo: Değişken hız profiline sahip ön araç ve aniden şeride katılan engel araç.
 - Girdiler: Araç hızı, ön araç mesafesi ve ön aracın hızı.
